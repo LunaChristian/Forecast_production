@@ -1,0 +1,10 @@
+{# templates/no_permission.html #}
+{% extends "base.html" %}
+{% block title %}Sin permisos{% endblock %}
+{% block content %}
+    <h2>No tiene permisos de edición</h2>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+{% endblock %}

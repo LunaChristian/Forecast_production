@@ -1,0 +1,12 @@
+{# templates/has_permission.html #}
+{% extends "base.html" %}
+{% block title %}Permisos concedidos{% endblock %}
+{% block content %}
+    <h2>Tiene permisos de edición</h2>
+    <h2> Prueba </h2>
+    <!-- Botón que cierra sesión y redirige al login -->
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+{% endblock %}
