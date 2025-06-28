@@ -1,0 +1,52 @@
+{# templates/partials/sidebar.html #}
+<nav class="bg-dark text-light p-3" style="min-width:250px;">
+    <br>
+    <h5 class="mb-4">📊 Forecast</h5>
+    <br>
+    <ul class="list-unstyled mt-4">
+        <li class="mb-3">
+            <a href="{% url 'home' %}" class="text-light text-decoration-none">
+            📊 Dashboard
+            </a>
+        </li>
+
+        {% if user.is_staff %}
+            <li class="mb-3">
+                <a href="#collapseCrearSemana" class="nav-link text-light" role="button" id="crearSemanaMenu" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseCrearSemana">
+                    ➕ Crear semana
+                </a>
+                <div class="collapse" id="collapseCrearSemana">
+                    <nav class="nav flex-column ms-3">
+                        <a class="nav-link text-light mb-2" href="#">
+                            Crear semana siguiente
+                        </a>
+                        <a class="nav-link text-light mb-1" href="#">
+                            Seleccionar semana...
+                        </a>
+                    </nav>
+                </div>
+            </li>
+
+            <li class="mb-3">
+                <a href="#" class="nav-link text-light">
+                    📂 Historial
+                </a>
+            </li>
+        {% else %}
+            <li class="mb-3">
+                <a href="#" class="nav-link text-light">
+                    🔍 Ver semana actual
+                </a>
+            </li>
+        {% endif %}
+
+        <li class="mb-3">
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="nav-link text-danger btn btn-link p-0 m-0 align-baseline">
+                    🚪 Cerrar sesión
+                </button>
+            </form>
+        </li>
+    </ul>
+</nav>

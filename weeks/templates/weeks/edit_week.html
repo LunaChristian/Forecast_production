@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content_read %}
+    <h1>Semana {{ week.start_date }}</h1>
+    <!-- muestra los datos en solo lectura, sin formulario -->
+    <ul>
+        {% for day in week.days %}
+        <li>{{ day.name }}: {{ day.estimated }} pizzas</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

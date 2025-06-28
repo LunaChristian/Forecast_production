@@ -1,7 +1,7 @@
 {# templates/no_permission.html #}
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% block title %}Sin permisos{% endblock %}
-{% block content %}
+{% block content_read %}
     <h2>No tiene permisos de edición</h2>
     <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}

@@ -1,13 +1,17 @@
 /* Estilos generales */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 body {
     font-family: 'Cal Sans', sans-serif;
     background-color: #212529;
     color: white;
-    padding-top: 10px; /* Ajustar el espacio superior para el contenido */
+    padding-top: 0px;
     padding-left: 10px;
     padding-right: 10px;
 }
-
 
 .navbar .navbar-nav .btn {
     font-size: 16px;
@@ -17,6 +21,11 @@ body {
 
 .navbar .navbar-nav .btn:hover {
     background-color: #9f9f9f;
+}
+
+/* Sidebar: todos los nav-link con margen inferior consistente */
+nav .nav-link {
+    margin-bottom: 1rem; /* igual que mb-3 de Bootstrap */
 }
 
 .section {

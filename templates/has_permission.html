@@ -1,12 +1,62 @@
 {# templates/has_permission.html #}
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% block title %}Permisos concedidos{% endblock %}
-{% block content %}
-    <h2>Tiene permisos de edición</h2>
-    <h2> Prueba </h2>
-    <!-- Botón que cierra sesión y redirige al login -->
-    <form method="post" action="{% url 'logout' %}">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Logout</button>
-    </form>
+
+{% block content_edit %}
+    <div class="container">
+    <h1 class="mb-4">Panel de control</h1>
+        <div class="row g-4">
+            <!-- Tile: Crear semana -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <a href="#" class="text-decoration-none">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-calendar-plus fa-3x mb-3"></i>
+                            <h5 class="card-title">Crear semana siguiente</h5>
+                            <p class="card-text">Genera automáticamente la próxima semana.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Tile: Seleccionar semana -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <a href="#" class="text-decoration-none">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-calendar-alt fa-3x mb-3"></i>
+                            <h5 class="card-title">Seleccionar semana</h5>
+                            <p class="card-text">Elige un lunes para planificar manualmente.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Tile: Historial -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <a href="#" class="text-decoration-none">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-book fa-3x mb-3"></i>
+                            <h5 class="card-title">Historial</h5>
+                            <p class="card-text">Revisa todas las semanas registradas.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Tile: Ver semana actual (solo lectura) -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <a href="#" class="text-decoration-none">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-eye fa-3x mb-3"></i>
+                            <h5 class="card-title">Ver semana actual</h5>
+                            <p class="card-text">Consulta la semana en curso sin editar.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

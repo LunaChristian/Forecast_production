@@ -22,7 +22,7 @@ from accounts.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/login/', LoginView.as_view(template_name='registration/login.html'), name='login'),
-    path('accounts/logout/', LogoutView.as_view(), name='logout'),
-    path('', home, name='home'),
+    path('', LoginView.as_view(template_name='registration/login.html'), name='login'),
+    path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
+    path('home/', home, name='home'),
 ]
