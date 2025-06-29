@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content_edit %}
+<div class="container">
+    <h2>Crear Semana</h2>
+
+    <!-- Fase 1: selector de fecha -->
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+        {{ form.start_day.label_tag }}
+        {{ form.start_day }}
+        {% for err in form.start_day.errors %}
+            <div class="text-danger">{{ err }}</div>
+        {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary">Cargar tabla</button>
+    </form>
+
+    {% if show_table %}
+        <hr>
+        <h3>Estimación de pizzas para la semana de {{ start_day|date:"d/m/Y" }}</h3>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="start_day" value="{{ start_day }}">
+            <table class="table table-dark table-bordered text-center">
+                <thead>
+                    <tr>
+                        {% for i in 0|until:7 %}
+                        <th>{{ start_day|add_days:i|date:"d/m/Y" }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {% for i in 0|until:7 %}
+                        <td>
+                            <input type="number" name="day_{{ i }}" class="form-control text-center" min="0" value="0">
+                        </td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-success">Guardar semana</button>
+        </form>
+    {% endif %}
+    </div>
+{% endblock %}
